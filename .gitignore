@@ -9,3 +9,5 @@ backup/
 *.terraform.lock.hcl
 .envinputs
 .envservers
+.envnginx
+.DS_Store

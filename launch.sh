@@ -21,3 +21,7 @@ chmod +x kasm_servers_info.sh
 # Run the playbook script
 chmod +x kasm_servers_playbook.sh
 ./kasm_servers_playbook.sh
+
+# Run the nginx script
+chmod +x kasm_web_nginx.sh
+./kasm_web_nginx.sh

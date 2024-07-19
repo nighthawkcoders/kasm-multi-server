@@ -35,6 +35,26 @@ other_server_size=${other_server_size:-"t3.medium"}
 agent_server_disk_size=${agent_server_disk_size:-50}
 other_server_disk_size=${other_server_disk_size:-50}
 
+# Initialize variables for Nginx setup
+domain=""
+email=""
+
+# Prompt for Nginx setup
+read -p "Do you want to set up Nginx? (0 to skip, 1 to setup) [default: 0]: " setup_nginx
+setup_nginx=${setup_nginx:-0}
+
+if [ "$setup_nginx" -eq 1 ]; then
+  read -p "Enter the domain name (e.g., example.com): " domain
+  read -p "Enter your email for Certbot: " email
+fi
+
+# Save Nginx inputs to .envnginx
+cat <<EOF > .envnginx
+setup_nginx=$setup_nginx
+domain=$domain
+email=$email
+EOF
+
 # Save inputs to .envinputs
 cat <<EOF > .envinputs
 region=$region
